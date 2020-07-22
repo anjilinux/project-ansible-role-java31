@@ -1,0 +1,26 @@
+---
+# tasks file for java_openjdk_11
+
+- block:
+    - name: install openjdk 11
+      apt:
+        name: "{{ java_openjdk_package_name }}"
+        update_cache: true
+        state: present
+        cache_valid_time: "{{ apt_cache_valid_time|default(omit) }}"
+
+    - name: set openjdk 11 as default java
+      alternatives:
+         name: java
+         path: "{{ java_openjdk_java_bin }}"
+
+    - name: add default-java symlink
+      file:
+        state: link
+        src: "{{ java_openjdk_dir }}"
+        dest: "{{ java_openjdk_default_java_link}}"
+
+  become: yes
+  become_method: sudo
+  tags:
+    - java_openjdk_11

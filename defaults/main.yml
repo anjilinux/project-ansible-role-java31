@@ -1,0 +1,4 @@
+---
+# defaults file for java_openjdk_11
+
+java_openjdk_package: jdk
