@@ -4,7 +4,7 @@ galaxy_info:
   description: Installs OpenJDK Java 11
   company: Traveloka
   license: BSD
-  min_ansible_version: 2.0
+  min_ansible_version: 2.8
   platforms:
     - name: Ubuntu
       versions:
